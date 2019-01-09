@@ -7,13 +7,14 @@ import UserDetails from "./UserDetails";
 
 class Header extends Component {
   constructor() {
-    console.log("the constructor was called");
+    // console.log("the constructor was called");
     super();
     this.state = {};
   }
 
   render() {
-    return <div className="header clearfix">
+    return (
+      <div className="header clearfix">
         <div className="header__logo">
           <Link to="/">
             <svg viewBox="0 0 93.21 93" xmlns="http://www.w3.org/2000/svg">
@@ -29,11 +30,18 @@ class Header extends Component {
           <HeaderTitle />
         </div>
 
-        {this.props.user !== null ? <div className="userPanelStyle clearfix">
+        {this.props.user !== null ? (
+          <div className="userPanelStyle clearfix">
             {this.props.isAdmin && <UserManagementLink />}
-            <UserDetails logOut={this.props.logOut} photoURL={this.props.user.photoURL} displayName={this.props.user.displayName} />
-          </div> : null}
-      </div>;
+            <UserDetails
+              logOut={this.props.logOut}
+              photoURL={this.props.user.photoURL}
+              displayName={this.props.user.displayName}
+            />
+          </div>
+        ) : null}
+      </div>
+    );
   }
 }
 
