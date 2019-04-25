@@ -1,13 +1,10 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 
 // Initialize Firebase
 const config = {
-  apiKey: 'AIzaSyDvDawJd8aoqFPufOK2auL4Z8wU95JfL20',
-  authDomain: 'halpq-project.firebaseapp.com',
-  databaseURL: 'https://halpq-project.firebaseio.com',
-  projectId: 'halpq-project',
-  storageBucket: 'halpq-project.appspot.com',
-  messagingSenderId: '408437676969',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN, 
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
 };
 
 firebase.initializeApp(config);
